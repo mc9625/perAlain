@@ -5,7 +5,16 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [showText, setShowText] = useState(false);
   
-  // Array di immagini e testi associati
+  // Creiamo un array con i numeri da 1 a 59
+  const totalPhotos = 59;
+  
+  // Selezioniamo una foto casuale
+  const [selectedPhoto] = useState(() => {
+    const randomNumber = Math.floor(Math.random() * totalPhotos) + 1;
+    return `/src/assets/foto${randomNumber}.jpg`;
+  });
+  
+  // Array di testi associati
   const content = [
     {
       text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -35,7 +44,7 @@ Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, ad
     <div className="fixed inset-0 w-screen h-screen bg-black overflow-hidden">
       {/* Immagine di sfondo */}
       <img
-        src={`/api/placeholder/1920/1080`}
+        src={selectedPhoto}
         alt="Random photograph"
         className={`absolute w-full h-full object-cover transition-opacity duration-500 ${
           showText ? 'opacity-30' : 'opacity-100'
