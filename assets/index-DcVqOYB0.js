@@ -67,7 +67,7 @@ Error generating stack: `+u.message+`
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Qc=[["path",{d:"M18 6 6 18",key:"1bl5f8"}],["path",{d:"m6 6 12 12",key:"d8bk6v"}]],Kc=ja("X",Qc);function Yc(){const[N,M]=st.useState(!1),[m,ee]=st.useState(!1),I=59,[F]=st.useState(()=>`/assets/foto${Math.floor(Math.random()*I)+1}.jpg`),te=[{text:`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+ */const Qc=[["path",{d:"M18 6 6 18",key:"1bl5f8"}],["path",{d:"m6 6 12 12",key:"d8bk6v"}]],Kc=ja("X",Qc);function Yc(){const[N,M]=st.useState(!1),[m,ee]=st.useState(!1),I=59,[F]=st.useState(()=>`/perAlain/assets/foto${Math.floor(Math.random()*I)+1}.jpg`),te=[{text:`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
