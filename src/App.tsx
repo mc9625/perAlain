@@ -11,7 +11,7 @@ function App() {
   // Selezioniamo una foto casuale
   const [selectedPhoto] = useState(() => {
     const randomNumber = Math.floor(Math.random() * totalPhotos) + 1;
-    return `/assets/foto${randomNumber}.jpg`;
+    return `${import.meta.env.BASE_URL}assets/foto${randomNumber}.jpg`;
   });
   
   // Array di testi associati
