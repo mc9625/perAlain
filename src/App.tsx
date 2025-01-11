@@ -40,7 +40,17 @@ Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, ad
   );
 
   useEffect(() => {
-    setTimeout(() => setIsOpen(true), 1000);
+    setTimeout(() => {
+      setIsOpen(true);
+      // Richiedi fullscreen dopo che l'otturatore si è aperto
+      try {
+        if (document.documentElement.requestFullscreen) {
+          document.documentElement.requestFullscreen();
+        }
+      } catch (err) {
+        console.log("Fullscreen request failed");
+      }
+    }, 1000);
 
     // Rileva l'orientamento del dispositivo
     const detectOrientation = () => {
@@ -76,7 +86,7 @@ Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, ad
             showText ? "opacity-30" : "opacity-100"
         } ${
             isZoomed 
-                ? `object-contain ${orientation === "portrait" ? "h-auto" : "w-auto"} border-4 border-red-500`
+                ? `object-contain ${orientation === "portrait" ? "h-auto" : "w-auto"} `
                 : "object-cover"
         }`}
         style={{
@@ -198,7 +208,7 @@ Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, ad
           showText ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
-        <button onClick={() => setShowText(false)}className="absolute top-6 right-6 z-20 p-4 text-white hover:text-gray-300"
+        <button onClick={() => setShowText(false)}className="absolute top-6 right-6 z-50 p-4 text-white hover:text-gray-300"
         >
           <X className="w-6 h-6" />
         </button>
