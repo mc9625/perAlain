@@ -65,16 +65,18 @@ Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, ad
       <img
         src={selectedPhoto}
         alt="Random photograph"
-        onClick={handleImageClick} // Aggiungi evento click
-        className={`absolute transition-opacity duration-500 cursor-pointer ${
+        onClick={handleImageClick}
+        className={`absolute w-full h-full transition-all duration-500 cursor-pointer ${
           showText ? "opacity-30" : "opacity-100"
         } ${
-          isZoomed
-            ? orientation === "portrait"
-              ? "w-full h-auto" // Larghezza intera in portrait
-              : "w-auto h-full" // Altezza intera in landscape
-            : "w-full h-full object-cover"
+          isZoomed 
+            ? `object-contain ${orientation === "portrait" ? "h-auto" : "w-auto"}`
+            : "object-cover"
         }`}
+        style={{
+          maxWidth: '100vw',
+          maxHeight: '100vh'
+        }}
       />
       
       {/* Container del diaframma */}
