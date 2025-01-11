@@ -55,7 +55,9 @@ Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, ad
   }, []);
 
   const handleImageClick = () => {
-    setIsZoomed(!isZoomed); // Alterna lo stato di zoom
+      console.log('handleImageClick called, current isZoomed:', isZoomed);
+      setIsZoomed(!isZoomed);
+      console.log('New isZoomed value will be:', !isZoomed);
   };
 
 
@@ -65,19 +67,24 @@ Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, ad
       <img
         src={selectedPhoto}
         alt="Random photograph"
-        onClick={handleImageClick}
+        onClick={() => {
+            console.log('Image clicked, current isZoomed:', isZoomed);
+            setIsZoomed(!isZoomed);
+            console.log('Image clicked, new isZoomed:', !isZoomed);
+        }}
         className={`absolute w-full h-full transition-all duration-500 cursor-pointer ${
-          showText ? "opacity-30" : "opacity-100"
+            showText ? "opacity-30" : "opacity-100"
         } ${
-          isZoomed 
-            ? `object-contain ${orientation === "portrait" ? "h-auto" : "w-auto"}`
-            : "object-cover"
+            isZoomed 
+                ? `object-contain ${orientation === "portrait" ? "h-auto" : "w-auto"} border-4 border-red-500`
+                : "object-cover"
         }`}
         style={{
-          maxWidth: '100vw',
-          maxHeight: '100vh'
+            maxWidth: '100vw',
+            maxHeight: '100vh',
+            zIndex: 10
         }}
-      />
+    />
       
       {/* Container del diaframma */}
       <div className="fixed inset-0 w-screen h-screen overflow-hidden">
